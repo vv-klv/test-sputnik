@@ -10,6 +10,15 @@
 @font-face {
     font-family: 'Montserrat';
     font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(src/fonts/Montserrat/Montserrat-Medium.woff2) format('woff2'),
+         url(src/fonts/Montserrat/Montserrat-Medium.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
     font-weight: 800;
     font-display: swap;
     src: url(src/fonts/Montserrat/Montserrat-ExtraBold.woff2) format('woff2'),

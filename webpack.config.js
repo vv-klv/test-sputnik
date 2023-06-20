@@ -13,7 +13,7 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
+            template: 'public/index.html',
         }),
     ],
     module: {

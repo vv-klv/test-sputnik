@@ -1,0 +1,25 @@
+.button {
+    padding: 0.25rem 0.5rem;
+    height: 3rem;
+    width: 25rem;
+
+    color: #fffc;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.5s linear;
+
+    background: linear-gradient(90deg, #c980fc, #ae68fa);
+    border: none;
+    border-radius: 1.5rem;
+
+
+    &:hover {
+        background: linear-gradient(90deg, darken(#c980fc, 5), darken(#ae68fa, 5));
+    }
+
+    &:active {
+        background: linear-gradient(90deg, darken(#c980fc, 2), darken(#ae68fa, 2));
+    }
+}
