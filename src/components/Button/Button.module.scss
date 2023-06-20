@@ -1,9 +1,9 @@
 .button {
     padding: 0.25rem 0.5rem;
     height: 3rem;
-    width: 25rem;
+    width: 15rem;
 
-    color: #fffc;
+    color: #fff;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -16,7 +16,7 @@
 
 
     &:hover {
-        background: linear-gradient(90deg, darken(#c980fc, 5), darken(#ae68fa, 5));
+        background: linear-gradient(90deg, darken(#c980fc, 3), darken(#ae68fa, 6));
     }
 
     &:active {

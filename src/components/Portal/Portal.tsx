@@ -1,18 +1,27 @@
-import React from "react"
+import React, { ReactHTMLElement, useEffect, useRef } from "react"
 import ReactDOM from "react-dom"
 import cl from './Portal.module.scss'
 
-const modals = document.getElementById('modals') as HTMLElement
-
 interface IPortal {
     children: React.ReactNode
+    portalRef?: React.Ref<HTMLDivElement>
 }
 
-const Portal = ({ children }: IPortal) => {
+const modals = document.getElementById('modals') as HTMLElement
+
+const Portal = ({ children, portalRef }: IPortal) => {
     return (
         modals &&
         ReactDOM.createPortal(
-            <div className={cl.portal}>{children}</div>,
+            <div
+                className={cl.portal}
+                ref={portalRef}
+
+            >
+                <div onClick={(e) => e.stopPropagation()}>
+                    {children}
+                </div>
+            </div>,
             modals
         )
     );

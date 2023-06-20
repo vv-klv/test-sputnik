@@ -1,0 +1,14 @@
+.buttonLink {
+    padding: 0;
+    color: #327ce0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+
+    &:hover,
+    &:active {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,25 @@
+.input {
+    padding: 0 0.75rem;
+    width: 25rem;
+    height: 2.5rem;
+    outline: none;
+    caret-color: rgba(#000, 0.7);
+
+    font-size: 1rem;
+    text-align: left;
+    border: 1px solid rgba(#000, 0.2);
+    border-radius: 0.25rem;
+    background: rgba(white, 0.1);
+}
+
+.hasCross::before {
+    content: 'x';
+    position: absolute;
+    width: 1rem;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 0.875rem;
+    color: rgba(white, 0.8);
+}
