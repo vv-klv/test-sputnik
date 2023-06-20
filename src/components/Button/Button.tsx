@@ -11,10 +11,17 @@ interface IButtonProps {
 const Button = ({ children, handleClick, classname, type = "button"}: IButtonProps) => {
     const classnames = [cl.button, classname]
 
+    const handleSubmit = (e:  React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if (type === "submit") {
+            e.preventDefault()
+        }
+        handleClick?.()
+    }
+
     return (
         <button
             className={classnames.join(' ')}
-            onClick={handleClick}
+            onClick={e => handleSubmit(e)}
             type={type}
         >
             {children}
