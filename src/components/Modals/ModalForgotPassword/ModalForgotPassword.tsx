@@ -5,11 +5,10 @@ import Input from "../../Input/Input"
 import cl from './ModalForgotPassword.module.scss'
 
 interface IModalLoginProps {
-    handleLogin: () => void
-    handleRegistration: () => void
+    handleOpenModal: (modal?: string) => void
 }
 
-const ModalForgotPassword = ({ handleLogin, handleRegistration }: IModalLoginProps) => {
+const ModalForgotPassword = ({ handleOpenModal }: IModalLoginProps) => {
     const placeholder = "konst.konst.konst@yandex.ru"
 
     return (
@@ -25,10 +24,10 @@ const ModalForgotPassword = ({ handleLogin, handleRegistration }: IModalLoginPro
                     Отправить код
                 </Button>
             </form>
-            <ButtonLink handleClick={handleRegistration}>
+            <ButtonLink handleClick={handleOpenModal} currentModal='register'>
                 Регистрация
             </ButtonLink>
-            <ButtonLink handleClick={handleLogin}>
+            <ButtonLink handleClick={handleOpenModal} currentModal='login'>
                 Уже зарегистрированы? Войти
             </ButtonLink>
         </div>

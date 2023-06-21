@@ -11,29 +11,16 @@ function AppContainer() {
     const [isPortalOpen, setIsPortalOpen] = useState(false)
     const [openedModal, setOpenedModal] = useState('')
 
-    const handleOpenLogin = () => {
+    const handleOpenModal = (modal?: string) => {
         setIsPortalOpen(false)
-        setOpenedModal('login')
-        setTimeout(() => {
-            setIsPortalOpen(true)
-        }, 150)
-    }
-    const handleOpenForgotPassword = () => {
-        setIsPortalOpen(false)
-        setOpenedModal('forgot_password')
-        setTimeout(() => {
-            setIsPortalOpen(true)
-        }, 150)
-    }
-    const handleOpenRegistration = () => {
-        setIsPortalOpen(false)
-        setOpenedModal('register')
+        setOpenedModal(modal ?? '')
+        console.log(modal)
         setTimeout(() => {
             setIsPortalOpen(true)
         }, 150)
     }
 
-    const handleClose = useCallback(() => {
+    const handleCloseModal = useCallback(() => {
         setIsPortalOpen(false)
         setOpenedModal('')
     }, [])
@@ -45,7 +32,7 @@ function AppContainer() {
             const { target } = event
 
             if (target instanceof Node && portalRef.current === target) {
-                handleClose()
+                handleCloseModal()
             }
         }
 
@@ -54,37 +41,28 @@ function AppContainer() {
         return () => {
             window.removeEventListener('click', handleWrapperClick);
         }
-    }, [handleClose])
+    }, [handleCloseModal])
 
     return (
         <div className={cl.container}>
-            <Button handleClick={handleOpenLogin}>
+            <Button handleClick={handleOpenModal} currentModal='login'>
                 Авторизация
             </Button>
             {
                 isPortalOpen &&
                 <Portal portalRef={portalRef} >
-                        <ModalBase handleClose={handleClose}>
+                        <ModalBase handleCloseModal={handleCloseModal}>
                             {
                                 openedModal === 'login' &&
-                                <ModalLogin
-                                    handleForgotPassword={handleOpenForgotPassword}
-                                    handleRegistration={handleOpenRegistration}
-                                />
+                                <ModalLogin handleOpenModal={handleOpenModal}/>
                             }
                             {
                                 openedModal === 'forgot_password' &&
-                                <ModalForgotPassword
-                                    handleLogin={handleOpenLogin}
-                                    handleRegistration={handleOpenRegistration}
-                                />
+                                <ModalForgotPassword handleOpenModal={handleOpenModal}/>
                             }
                             {
                                 openedModal === 'register' &&
-                                <ModalRegister
-                                    handleForgotPassword={handleOpenForgotPassword}
-                                    handleLogin={handleOpenLogin}
-                                />
+                                <ModalRegister handleOpenModal={handleOpenModal}/>
                             }
                         </ModalBase>
                 </Portal>

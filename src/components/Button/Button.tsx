@@ -3,19 +3,20 @@ import cl from './Button.module.scss'
 
 interface IButtonProps {
     children: React.ReactNode
-    handleClick?: () => void
+    handleClick?: (modal?: string) => void
+    currentModal?: string
     classname?: string
     type?: "button" | "submit" | "reset" | undefined
 }
 
-const Button = ({ children, handleClick, classname, type = "button"}: IButtonProps) => {
+const Button = ({ children, handleClick, currentModal, classname, type = "button"}: IButtonProps) => {
     const classnames = [cl.button, classname]
 
     const handleSubmit = (e:  React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         if (type === "submit") {
             e.preventDefault()
         }
-        handleClick?.()
+        handleClick?.(currentModal)
     }
 
     return (

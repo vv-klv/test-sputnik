@@ -3,14 +3,15 @@ import cl from './ButtonLink.module.scss'
 
 interface IButtonProps {
     children: React.ReactNode
-    handleClick: React.MouseEventHandler<HTMLButtonElement>
+    handleClick?: (modal?: string) => void
+    currentModal?: string
 }
 
-const ButtonLink = ({ children, handleClick }: IButtonProps) => {
+const ButtonLink = ({ children, handleClick, currentModal }: IButtonProps) => {
     return (
         <button
             className={cl.buttonLink}
-            onClick={handleClick}
+            onClick={() => handleClick?.(currentModal)}
         >
             {children}
         </button>

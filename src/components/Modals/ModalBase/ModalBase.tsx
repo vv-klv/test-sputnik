@@ -5,7 +5,7 @@ import emailImg from '../../../assets/images/email.svg'
 
 interface IModalBaseProps {
     children: React.ReactNode
-    handleClose: React.MouseEventHandler<HTMLButtonElement>
+    handleCloseModal: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const sendEmail = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -13,12 +13,12 @@ const sendEmail = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
 }
 
-const ModalBase = ({ children, handleClose }: IModalBaseProps) => {
+const ModalBase = ({ children, handleCloseModal }: IModalBaseProps) => {
     return (
         <div className={cl.modalWrapper}>
             <div className={cl.modalTop}>
                 <h2 className={cl.modalTitle}><b>Web </b>App</h2>
-                <button className={cl.modalClose} onClick={handleClose} aria-label="close modal"/>
+                <button className={cl.modalClose} onClick={handleCloseModal} aria-label="close modal"/>
             </div>
 
             {children}
