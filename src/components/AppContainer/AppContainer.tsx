@@ -13,8 +13,13 @@ function AppContainer() {
 
     const handleOpenModal = (modal?: string) => {
         setIsPortalOpen(false)
-        setOpenedModal(modal ?? '')
-        console.log(modal)
+        if (modal) {
+            setOpenedModal(modal)
+        } else {
+            setOpenedModal('')
+            alert('Не удалось открыть модальное окно')
+        }
+
         setTimeout(() => {
             setIsPortalOpen(true)
         }, 150)
