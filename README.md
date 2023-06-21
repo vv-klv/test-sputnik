@@ -1,15 +1,20 @@
-# 🚀 Welcome to your new awesome project!
+# Sputnikfund test assignment
 
-This project has been created using **webpack-cli**, you can now run
+## To install all packages
+run
+```
+npm install
+```
+## To run the app in the development mode
+run
+```
+npm start
+```
 
+
+## To bundle the app 
+run
 ```
 npm run build
 ```
 
-or
-
-```
-yarn build
-```
-
-to bundle your application
