@@ -19,10 +19,7 @@ function AppContainer() {
             setOpenedModal('')
             alert('Не удалось открыть модальное окно')
         }
-
-        setTimeout(() => {
-            setIsPortalOpen(true)
-        }, 150)
+        setIsPortalOpen(true)
     }
 
     const handleCloseModal = useCallback(() => {
